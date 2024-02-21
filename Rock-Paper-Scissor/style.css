@@ -1,0 +1,44 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    /* outline: 1px solid red; */
+}
+
+.flex-container{
+    display: flex;
+    justify-content: center;
+}
+
+.Head{
+    background-color: rgb(33, 53, 53);
+    color: aliceblue;
+    width: 100vw;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.btn-menu{
+    margin-top: 50px;
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+}
+
+button{
+    width: 100px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(33, 53, 53);
+    color: aliceblue;
+}
+
+.content{
+    margin-top: 50px;
+    width: 500px;
+    height: 250px;
+    border: 1px solid black;
+    text-align: center;
+    overflow: scroll;
+}

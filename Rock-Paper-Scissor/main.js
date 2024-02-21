@@ -2,6 +2,8 @@
 
 const choices = ["Rock","Paper","Scissor"];
 
+let playerCounter = 0, computerCounter = 0;
+
 const getComputerChoice = () => choices[Math.floor(Math.random()*3)];
 
 const playRound = (playerSelection, computerSelection) => {
@@ -33,13 +35,21 @@ const playRound = (playerSelection, computerSelection) => {
 };
 
 
-const playGame = () => {
 
-    let playerCounter = 0, computerCounter = 0, message ="";
+const container = document.querySelector(".content");
 
-    for(let i = 0; i < 5; i++){
+const buttons = document.querySelectorAll("button");
 
-        message = playRound(prompt("Rock Paper Scissor"), getComputerChoice());
+buttons.forEach((button) =>{
+
+    button.addEventListener('click',(e) =>{
+
+        const div = document.createElement("div");
+        let message = playRound(button.id.slice(3),getComputerChoice())
+
+        div.innerHTML = message;
+        
+        container.prepend(div);
 
         if(message.indexOf("Win") != -1){
             playerCounter++;
@@ -47,11 +57,16 @@ const playGame = () => {
             computerCounter++;
         }
 
-        console.log(message);
-    }
+        if(playerCounter == 5 || computerCounter == 5){
+            const winner = document.createElement("div");
+            winner.innerHTML = playerCounter > computerCounter ? "Player Win!":"Computer Win!";
+            container.prepend(winner);
 
-    console.log(playerCounter > computerCounter ? "Player Win!":"Computer Win!");
-};
+            playerCounter = 0;
+            computerCounter = 0;
+        }
+        
+    });
 
-playGame();
+});
 
